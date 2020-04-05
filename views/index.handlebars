@@ -1,37 +1,37 @@
-<h1>Eat-DA-Burger!</h1>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="burg"></label>
-    <input type="text" id="burg" name="burger_name">
-  </div>
-
-  <div class="form-group">
-    <label for="devoured"></label><br>
-      
-
-  <button type="submit">Add Burger</button>
-</form>
-
-
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      <p>{{id}}. {{burger_name}}
-        <span><button class="change-devour" data-id="{{id}}" data-newdevour=true>
-          {{#if devoured}}devoured!{{else}}devour me!{{/if}}
-        </button></span>
-      </p>
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>DEVOURED Burgers</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      <p>{{id}}. {{burger_name}}</p>
-    {{/if}}
-  {{/each}}
-</ul>
+<h1>Eat-Da-Burger!</h1>
+  <form class="create-form">
+    <div class="form-group">
+      <label for="bgr"></label>
+      <input type="text" class="form-control" id="burger-name" name="name" placeholder="Enter your Burger">
+    </div>
+    <br>
+    <button type="submit" class="btn">Submit Order</button>
+  </form>
+<br>
+<div id="devoured-burgers">
+  <div>
+    <div class="ready">
+      <h2>Burgers Ready!</h2>
+      <ul>
+        {{#each burgers}}
+        {{#unless devoured}}
+        <div class="card">
+          <p id="newburger">{{id}}. {{burger_name}}
+            <button type="button" class="btn devour-status" data-id="{{id}}" data-newDevour="true">Devour it!</button>
+          </p>
+          {{/unless}}
+          {{/each}}
+      </ul>
+    </div>
+    <div class="tested">
+      <h2>Burgers Devoured!</h2>
+      <ul>
+        {{#each burgers}}
+        {{#if devoured}}
+        <div class="card">
+          <p id="eatburger">{{id}}. {{burger_name}}</p>
+        </div>
+        {{/if}}
+        {{/each}}
+      </ul>
+    </div>

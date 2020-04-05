@@ -7,6 +7,7 @@ $(function() {
           .val()
           .trim(),
         devoured: 0
+        
       };
   
       $.ajax("/api/burgers", {
